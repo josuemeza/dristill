@@ -10,6 +10,4 @@
 	include($root.'assets/html/header.php');
 ?>
 
-
-
 <?php include($root.'assets/html/footer.php');?>

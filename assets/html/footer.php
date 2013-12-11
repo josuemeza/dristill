@@ -3,6 +3,6 @@
 				<p>Tenemos todos los derechos reservados y Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
 			</div>
 		</footer>
-	</div><!-- End of div#content -->
+	</div><!-- End of div.container -->
 </body>
 </html>
