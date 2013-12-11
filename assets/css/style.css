@@ -1,0 +1,31 @@
+#slider-recientes .img-content {
+	display: inline-block;
+	width: 60%;
+	text-align: center;
+}
+
+#slider-recientes .text-content {
+	display: inline-block;
+	width: 39%;
+	vertical-align: top;
+}
+
+#history-events .table-col-1 {
+	width: 8em;
+}
+
+#history-events .table-col-2 {
+	
+}
+
+#history-events .table-col-3 {
+	
+}
+
+#history-events .table-col-4 {
+
+}
+
+footer {
+	padding-top: 50px;
+}
