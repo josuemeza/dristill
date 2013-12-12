@@ -18,8 +18,8 @@
 					<input type="checkbox" value="remember-me"> Recordar esta cuenta
 				</label>
 				<div class="text-right">
-					<button class="btn btn-default" type="button">Regístrate</button>
-					<button class="btn btn-primary" type="submit">Entrar</button>
+					<button class="btn btn-default btn-lg" type="button">Regístrate</button>
+					<button class="btn btn-primary btn-lg" type="submit">Entrar</button>
 				</div>
 			</form>
 		</div>

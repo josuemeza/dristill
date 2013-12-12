@@ -46,8 +46,9 @@
 					<span class="error"></span>
 				</div>
 			</div>
-			<div class="col-md-4 col-md-offset-4">
-				<button type="button" class="btn btn-primary btn-lg btn-block">Enviar</button>
+			<div class="col-md-4 col-md-offset-4 text-right">
+					<button class="btn btn-default btn-lg" type="button">Regístrate</button>
+					<button class="btn btn-primary btn-lg" type="submit">Entrar</button>
 			</div>
 		</form>
 	</div>
