@@ -12,8 +12,8 @@
 		<h2 class="col-md-4 col-md-offset-4">Inicio de sesión</h2>
 		<div class="col-md-4 col-md-offset-4">
 			<form class="form-signin" role="form">
-				<input type="text" class="form-control" placeholder="nombre de usuario" autofocus>
-				<input type="password" class="form-control" placeholder="contraseña">
+				<input type="text" class="form-control" placeholder="nombre de usuario"/>
+				<input type="password" class="form-control" placeholder="contraseña"/>
 				<label class="checkbox">
 					<input type="checkbox" value="remember-me"> Recordar esta cuenta
 				</label>
