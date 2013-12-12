@@ -12,8 +12,15 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo $root;?>assets/css/bootstrap-theme.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $root;?>assets/css/style.css">
 	<link rel="icon" type="image/png" href="<?php echo $root;?>assets/img/favicon.png" />
+	<!-- Casos especiales de IE -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 	<!-- Scripts -->
 	<script type="text/javascript" src="<?php echo $root;?>scripts/jquery-1.9.0.js"></script>
+	<script type="text/javascript" src="<?php echo $root;?>scripts/jquery.Rut.js"></script>
+	<script type="text/javascript" src="<?php echo $root;?>scripts/jquery.validate.js"></script>
 	<script type="text/javascript" src="<?php echo $root;?>scripts/easing.js"></script>
 	<script type="text/javascript" src="<?php echo $root;?>scripts/touchSwipe.js"></script>
 	<script type="text/javascript" src="<?php echo $root;?>scripts/liquid-slider.js"></script>
