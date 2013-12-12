@@ -1,5 +1,6 @@
 $(function() {
 	$(document).ready(function() {
+
 		$('#slider-recientes').liquidSlider({
 			autoSlide: true,
 			slideEaseFunction: 'easeInOutSine',
@@ -8,5 +9,6 @@ $(function() {
 			includeTitle: false,
 			dynamicTabsAlign: 'center'
 		});
+
 	});
 });
