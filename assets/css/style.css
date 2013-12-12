@@ -1,13 +1,5 @@
-#slider-recientes .img-content {
-	display: inline-block;
-	width: 60%;
-	text-align: center;
-}
-
-#slider-recientes .text-content {
-	display: inline-block;
-	width: 39%;
-	vertical-align: top;
+.no-slider {
+	margin-top: 8em;
 }
 
 #history-events .table-col-1 {
@@ -15,5 +7,5 @@
 }
 
 footer {
-	padding-top: 50px;
+	padding-top: 8em;
 }

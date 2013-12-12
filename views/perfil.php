@@ -10,6 +10,8 @@
 	include($root.'assets/html/header.php');
 ?>
 
+<div class="container no-slider">
 
+</div>
 
 <?php include($root.'assets/html/footer.php');?>

@@ -5,13 +5,13 @@
 		new Evento('Evento A', 'Fiesta', '22/10/2013', '', '', 'imagen1.jpg'),
 		new Evento('Evento B', 'Fiesta', '22/10/2013', '', '', 'imagen2.jpg'),
 		new Evento('Evento C', 'Fiesta', '22/10/2013', '', '', 'imagen3.jpg'),
-		new Evento('Evento D', 'Fiesta', '22/10/2013', '', '', 'imagen3.jpg'),
-		new Evento('Evento E', 'Fiesta', '22/10/2013', '', '', 'imagen3.jpg'),
-		new Evento('Evento F', 'Fiesta', '22/10/2013', '', '', 'imagen3.jpg'),
+		new Evento('Evento D', 'Fiesta', '22/10/2013', '', '', 'imagen4.jpg'),
+		new Evento('Evento E', 'Fiesta', '22/10/2013', '', '', 'imagen1.jpg'),
+		new Evento('Evento F', 'Fiesta', '22/10/2013', '', '', 'imagen2.jpg'),
 		new Evento('Evento G', 'Fiesta', '22/10/2013', '', '', 'imagen3.jpg'),
-		new Evento('Evento H', 'Fiesta', '22/10/2013', '', '', 'imagen3.jpg'),
-		new Evento('Evento I', 'Fiesta', '22/10/2013', '', '', 'imagen3.jpg'),
-		new Evento('Evento J', 'Fiesta', '22/10/2013', '', '', 'imagen3.jpg')
+		new Evento('Evento H', 'Fiesta', '22/10/2013', '', '', 'imagen4.jpg'),
+		new Evento('Evento I', 'Fiesta', '22/10/2013', '', '', 'imagen1.jpg'),
+		new Evento('Evento J', 'Fiesta', '22/10/2013', '', '', 'imagen2.jpg')
 	);
 
 	$history_events = array(
