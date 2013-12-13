@@ -12,44 +12,44 @@
 		<div class="col-md-4 col-md-offset-4">
 			<form class="form-horizontal" role="form" method="post" action="felicitaciones.html" enctype="multipart/form-data">
 				<div class="form-group">
-					<label class="col-md-1 col-md-offset-4 control-label">Correo</label>
-					<div class="col-md-3">
+					<label class="col-md-3 control-label">Correo</label>
+					<div class="col-md-9">
 						<input type="text" placeholder="correo@correo.correo" class="form-control"/>
 					</div>
-					<div class="col-md-3 col-md-offset-5">
+					<div class="col-md-9 col-md-offset-3">
 						<span class="error"></span>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-md-1 col-md-offset-4 control-label">Usuario</label>
-					<div class="col-md-3">
+					<label class="col-md-3 control-label">Usuario</label>
+					<div class="col-md-9">
 						<input type="text" placeholder="nombre de usuario" class="form-control"/>
 					</div>
-					<div class="col-md-3 col-md-offset-5">
+					<div class="col-md-9 col-md-offset-3">
 						<span class="error"></span>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-md-1 col-md-offset-4 control-label">Contraseña</label>
-					<div class="col-md-3">
+					<label class="col-md-3 control-label">Contraseña</label>
+					<div class="col-md-9">
 						<input type="password" placeholder="contraseña" class="form-control"/>
 					</div>
-					<div class="col-md-3 col-md-offset-5">
+					<div class="col-md-9 col-md-offset-3">
 						<span class="error"></span>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-md-1 col-md-offset-4 control-label">Confirme</label>
-					<div class="col-md-3">
+					<label class="col-md-3 control-label">Confirme</label>
+					<div class="col-md-9">
 						<input type="text" placeholder="confirmación de contraseña" class="form-control"/>
 					</div>
-					<div class="col-md-3 col-md-offset-5">
+					<div class="col-md-9 col-md-offset-3">
 						<span class="error"></span>
 					</div>
 				</div>
-				<div class="col-md-4 col-md-offset-4 text-right">
-						<button class="btn btn-default btn-lg" type="button">Regístrate</button>
-						<button class="btn btn-primary btn-lg" type="submit">Entrar</button>
+				<div class="text-right">
+					<button class="btn btn-default btn-lg" type="button">Regístrate</button>
+					<button class="btn btn-primary btn-lg" type="submit">Entrar</button>
 				</div>
 			</form>
 		</div>
