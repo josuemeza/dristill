@@ -48,6 +48,7 @@
 					</div>
 				</div>
 				<div class="text-right">
+				<div class="text-right">
 						<button class="btn btn-default btn-lg" type="button">Regístrate</button>
 						<button class="btn btn-primary btn-lg" type="submit">Entrar</button>
 				</div>
