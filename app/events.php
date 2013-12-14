@@ -17,6 +17,20 @@
 	$history_events = array(
 		new Evento('Fiesta A', 'Fiesta', '22/10/2013', 'Valparaíso', 'Avenida Playa Ancha', ''),
 		new Evento('Fiesta B', 'Fiesta', '22/10/2013', 'Valparaíso', 'Avenida Playa Ancha', ''),
+		new Evento('Fiesta C', 'Fiesta', '22/10/2013', 'Valparaíso', 'Avenida Playa Ancha', ''),
+		new Evento('Fiesta B', 'Fiesta', '22/10/2013', 'Valparaíso', 'Avenida Playa Ancha', ''),
+		new Evento('Fiesta B', 'Fiesta', '22/10/2013', 'Valparaíso', 'Avenida Playa Ancha', ''),
+		new Evento('Fiesta C', 'Fiesta', '22/10/2013', 'Valparaíso', 'Avenida Playa Ancha', ''),
+		new Evento('Fiesta B', 'Fiesta', '22/10/2013', 'Valparaíso', 'Avenida Playa Ancha', ''),
+		new Evento('Fiesta B', 'Fiesta', '22/10/2013', 'Valparaíso', 'Avenida Playa Ancha', ''),
+		new Evento('Fiesta C', 'Fiesta', '22/10/2013', 'Valparaíso', 'Avenida Playa Ancha', ''),
+		new Evento('Fiesta B', 'Fiesta', '22/10/2013', 'Valparaíso', 'Avenida Playa Ancha', ''),
+		new Evento('Fiesta B', 'Fiesta', '22/10/2013', 'Valparaíso', 'Avenida Playa Ancha', ''),
+		new Evento('Fiesta C', 'Fiesta', '22/10/2013', 'Valparaíso', 'Avenida Playa Ancha', ''),
+		new Evento('Fiesta B', 'Fiesta', '22/10/2013', 'Valparaíso', 'Avenida Playa Ancha', ''),
+		new Evento('Fiesta B', 'Fiesta', '22/10/2013', 'Valparaíso', 'Avenida Playa Ancha', ''),
+		new Evento('Fiesta C', 'Fiesta', '22/10/2013', 'Valparaíso', 'Avenida Playa Ancha', ''),
+		new Evento('Fiesta B', 'Fiesta', '22/10/2013', 'Valparaíso', 'Avenida Playa Ancha', ''),
 		new Evento('Fiesta C', 'Fiesta', '22/10/2013', 'Valparaíso', 'Avenida Playa Ancha', '')
 	);
 ?>
