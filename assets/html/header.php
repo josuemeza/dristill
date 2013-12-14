@@ -14,6 +14,8 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo $root;?>assets/css/bootstrap.css"/>
 	<link rel="stylesheet" type="text/css" href="<?php echo $root;?>assets/css/bootstrap-theme.css"/>
 	<link rel="stylesheet" type="text/css" href="<?php echo $root;?>assets/css/carousel.css"/>
+	<link rel="stylesheet" type="text/css" href="<?php echo $root;?>assets/css/datepicker.css"/>
+	<link rel="stylesheet" type="text/css" href="<?php echo $root;?>assets/css/fixed-table-theme.css"/>
 	<link rel="stylesheet" type="text/css" href="<?php echo $root;?>assets/css/style.css"/>
 	<link rel="icon" type="image/png" href="<?php echo $root;?>assets/img/favicon.png"/>
 	<!-- Casos especiales de IE -->
@@ -22,11 +24,13 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 	<!-- Scripts -->
-	<script type="text/javascript" src="<?php echo $root;?>scripts/jquery-1.9.0.js"></script>
-	<script type="text/javascript" src="<?php echo $root;?>scripts/jquery.Rut.js"></script>
-	<script type="text/javascript" src="<?php echo $root;?>scripts/jquery.validate.js"></script>
-	<script type="text/javascript" src="<?php echo $root;?>scripts/bootstrap.js"></script>
-	<script type="text/javascript" src="<?php echo $root;?>scripts/holder.js"></script>
+	<script type="text/javascript" src="<?php echo $root;?>scripts/lib/jquery-1.9.0.js"></script>
+	<script type="text/javascript" src="<?php echo $root;?>scripts/lib/jquery.Rut.js"></script>
+	<script type="text/javascript" src="<?php echo $root;?>scripts/lib/jquery.validate.js"></script>
+	<script type="text/javascript" src="<?php echo $root;?>scripts/lib/bootstrap.js"></script>
+	<script type="text/javascript" src="<?php echo $root;?>scripts/lib/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="<?php echo $root;?>scripts/lib/holder.js"></script>
+	<script type="text/javascript" src="<?php echo $root;?>scripts/lib/jquery.fixedheadertable.js"></script>
 	<title>
 		<?php echo $titulo;?>
 	</title>
