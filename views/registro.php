@@ -16,38 +16,29 @@
 					<div class="col-md-9">
 						<input type="text" placeholder="correo@correo.correo" class="form-control"/>
 					</div>
-					<div class="col-md-9 col-md-offset-3">
-						<span class="error"></span>
-					</div>
+					<span class="error col-md-9 col-md-offset-3"></span>
 				</div>
 				<div class="form-group">
 					<label class="col-md-3 control-label">Usuario</label>
 					<div class="col-md-9">
 						<input type="text" placeholder="nombre de usuario" class="form-control"/>
 					</div>
-					<div class="col-md-9 col-md-offset-3">
-						<span class="error"></span>
-					</div>
+					<span class="error col-md-9 col-md-offset-3"></span>
 				</div>
 				<div class="form-group">
 					<label class="col-md-3 control-label">Contraseña</label>
 					<div class="col-md-9">
 						<input type="password" placeholder="contraseña" class="form-control"/>
 					</div>
-					<div class="col-md-9 col-md-offset-3">
-						<span class="error"></span>
-					</div>
+					<span class="error col-md-9 col-md-offset-3"></span>
 				</div>
 				<div class="form-group">
 					<label class="col-md-3 control-label">Confirme</label>
 					<div class="col-md-9">
 						<input type="text" placeholder="confirmación de contraseña" class="form-control"/>
 					</div>
-					<div class="col-md-9 col-md-offset-3">
-						<span class="error"></span>
-					</div>
+					<span class="error col-md-9 col-md-offset-3"></span>
 				</div>
-				<div class="text-right">
 				<div class="text-right">
 						<button class="btn btn-default btn-lg" type="button">Regístrate</button>
 						<button class="btn btn-primary btn-lg" type="submit">Entrar</button>
