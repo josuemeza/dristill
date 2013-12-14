@@ -11,9 +11,10 @@
 ?>
 
 <div class="container no-slider" id="casilla">
+	<h1>Formulario Evento</h1>
 	<form id="nuevo-evento" method="post" action="# ">
 		<p>Nombre</p>
-		<textarea id="nombre_evento" maxlenght="10" onBlur="limita(10)" ></textarea></br></br>
+		<textarea id="nombre_evento" maxlenght="100" onBlur="limita(10)" ></textarea></br></br>
 
 		<p>Dirección</p>
 		<textarea id="direccion" maxlenght="100"></textarea></br></br>
@@ -42,21 +43,5 @@
 	</form>
 </div>
 
-<script type="text/javascript">
-		function limita(maximoDeCaracteres){
- 			var elemento=document.getElementById("nombre_evento");
- 			var info=document.getElementById("casilla");
- 			var restan=maximoDeCaracteres;
- 			if(elemento.value.length>=maximoDeCaracteres){
- 				console.log("Ha llegado al limite de caracteres permitidos");
- 				return false;
- 			}else{ 
- 				info.innerHTML="le restan "+(maximoDeCaracteres-elemento.value.length-1)+" caracteres por ingresar"; 
- 				return true;
- 			}
- 		}
 
-
-
-</script>
 <?php include($root.'assets/html/footer.php');?>
