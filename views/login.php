@@ -3,19 +3,19 @@
 	$titulo = 'Dristill - Log in';
 	session_start();
 	if($_SESSION['loguser']) echo '<script type="text/javascript">window.location="'. $root . 'views/perfil.php"</script>';
-	$nav_elements = array("inicio", "registro", "login");
+	$nav_elements = array("inicio", "perfil", "registro", "login");
 	$nav_active = "login";
 	include($root.'assets/html/header.php');
 ?>
-<div class="container no-slider">
-	<div class="row">
+<section class="container no-slider">
+	<article class="row">
 		<h2 class="col-md-4 col-md-offset-4">Inicio de sesión</h2>
 		<div class="col-md-4 col-md-offset-4">
-			<form class="form-signin" role="form">
+			<form class="form-signin" role="form" action="<?php echo $root;?>views/perfil.php" method="POST">
 				<input type="text" class="form-control" placeholder="nombre de usuario"/>
 				<input type="password" class="form-control" placeholder="contraseña"/>
-				<label class="checkbox">
-					<input type="checkbox" value="remember-me"> Recordar esta cuenta
+				<label for="recordarme" class="checkbox">
+					<input id="recordarme" name="recordarme" type="checkbox" value="remember-me"> Recordar esta cuenta
 				</label>
 				<div class="text-right">
 					<button class="btn btn-default btn-lg" type="button">Regístrate</button>
@@ -23,7 +23,7 @@
 				</div>
 			</form>
 		</div>
-	</div>
-</div>
+	</article>
+</section>
 
 <?php include($root.'assets/html/footer.php');?>

@@ -1,5 +1,4 @@
 $(function() {
-
 	$(document).ready(function() {
 		// Reglas de validación
 		var rules = {
