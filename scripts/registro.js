@@ -60,6 +60,7 @@ $(function() {
 			}
 		});
 
+		// Validación de correo disponible
 		$('#correo').focusout(function() {
 			if(validator.element('#correo')) {
 				$('#correo-loader img').show();
