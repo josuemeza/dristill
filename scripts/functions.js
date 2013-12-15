@@ -29,4 +29,29 @@ $(function() {
 	}
 	$.validator.addMethod("confirmation", confirmation, "Los campos no coinciden");
 
+	function valid_date(value, element, param) {
+	    if(value!='' && value.split('-').length==3) {
+	    	var dat = value.split('-');
+	    	if(!isNaN(parseInt(dat[0])) && !isNaN(parseInt(dat[1])) && !isNaN(parseInt(dat[2]))) {
+	    		var today = new Date();
+	    		today = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+	    		var input = new Date(dat[0], dat[1]-1, dat[2]);
+	    		if(input>=today) return true;
+	    		return false;
+	    	}
+	    	return true;
+	    }
+	    return true;
+	}
+	$.validator.addMethod("valid_date", valid_date, "La fecha está fuera de rango.");
+
+	function file_type(value, element, param) {
+	    if(element.files[0] && param instanceof Array) {
+	    	for(var i in param) if(param[i]==element.files[0].type.split('/')[0]) return true;
+	    	return false;
+	    }
+	    return true;
+	}
+	$.validator.addMethod("file_type", file_type, "El tipo de archivo no es válido.");
+
 });
