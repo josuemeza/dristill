@@ -24,13 +24,14 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 	<!-- Scripts -->
-	<script type="text/javascript" src="<?php echo $root;?>scripts/lib/jquery-1.9.0.js"></script>
+	<script type="text/javascript" src="<?php echo $root;?>scripts/lib/jquery-1.10.2.js"></script>
 	<script type="text/javascript" src="<?php echo $root;?>scripts/lib/jquery.Rut.js"></script>
 	<script type="text/javascript" src="<?php echo $root;?>scripts/lib/jquery.validate.js"></script>
 	<script type="text/javascript" src="<?php echo $root;?>scripts/lib/bootstrap.js"></script>
 	<script type="text/javascript" src="<?php echo $root;?>scripts/lib/bootstrap-datepicker.js"></script>
 	<script type="text/javascript" src="<?php echo $root;?>scripts/lib/holder.js"></script>
 	<script type="text/javascript" src="<?php echo $root;?>scripts/lib/jquery.fixedheadertable.js"></script>
+	<script type="text/javascript" src="<?php echo $root;?>scripts/functions.js"></script>
 	<title>
 		<?php echo $titulo;?>
 	</title>
