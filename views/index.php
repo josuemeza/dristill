@@ -25,7 +25,7 @@
 		<?php $i = 0; foreach($top_events as $e) {?>
 			<div class="item <?php echo $i==0 ? 'active' : '';?>">
 				<!--img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt=":)"/-->
-				<img src="<?php echo $root;?>assets/img/eventos/<?php echo $e->getImagenPath();?>" class="img-responsive" alt=":)"/>
+				<img src="<?php echo $root;?>assets/img/eventos/<?php echo $e->getImagenPath();?>" alt=":)"/>
 				<div class="container">
 					<div class="carousel-caption">
 						<h2>

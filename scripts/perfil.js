@@ -1,14 +1,47 @@
 $(function() {
 	$(document).ready(function() {
 		// Reglas de validación
-		var rules = {
+		var userdata_rules = {
+			run_input: { required: true, rut: true },
+			correo: { required: true, email: true, mail_extension: ['com', 'cl'], maxlength: 30 },
+			password: { required: true, digits: true, minlength: 6, maxlength: 12, mail_name: '#correo' },
+			confirmacion: { required: true, digits: true, minlength: 6, maxlength: 12, confirmation: '#password' }
+		}
+		var event_rules = {
 			nombre: { required: true, minlength: 3, maxlength: 100 },
 			direccion: { required: true, minlength: 3, maxlength: 100 },
 			fecha: { required: true, valid_date: true },
 			file_data: { file_type: ['image'] }
 		}
+
 		// Mensajes de validación
-		var messages = {
+		var userdata_messages = {
+			run_input: { 
+				required: 'Campo obligatorio. Use 12.345.678-9', 
+				rut: 'RUN no válido. Use 12.345.678-9' 
+			},
+			correo: { 
+				required: 'Correo requerído. Use a@b.c', 
+				email: 'Correo no válido. Use a@b.c',
+				mail_extension: 'Extensión no válidas: Use com, cl.',
+				maxlength: 'Máximo 30 caracteres.'
+			},
+			password: {
+				required: 'Contraseña requerida.',
+				digits: 'Solo debe contener números.',
+				minlength: 'Debe contener mínimo 6 caracteres.',
+				maxlength: 'Debe contener máximo 12 caracteres.',
+				mail_name: 'No puede usar el nombre del correo.'
+			},
+			confirmacion: {
+				required: 'Confirmación requerida',
+				digits: 'Solo debe contener números.',
+				minlength: 'Debe contener mínimo 6 caracteres.',
+				maxlength: 'Debe contener máximo 12 caracteres.',
+				confirmation: 'Las contraseñas no coinciden.'
+			}
+		}
+		var event_messages = {
 			nombre: {
 				required: 'Nombre requerido.',
 				minlength: 'Debe tener al menos 3 caracteres.',
@@ -27,16 +60,38 @@ $(function() {
 			}
 		}
 
-		// Validación
-		var validator = $('#nuevo-evento').validate({
-			rules: rules,
-			messages: messages,
+		// Formato de rut
+		$('#run_input').Rut({
+			format: true,
+			format_on: 'keyup'
+		});
+
+		// Validadores
+		var userdata_validator = $('#form-editar').validate({
+			rules: userdata_rules,
+			messages: userdata_messages,
 			onkeyup: false,
 			errorElement: 'span',
 			errorClass: 'error',
 			onsubmit: false,
 			onfocusout: function(e) { 
-				if(validator.element('#'+e.id)) {
+				if(userdata_validator.element('#'+e.id)) {
+					if($('#'+e.id).parent().hasClass('has-error')) 
+						$('#'+e.id).parent().removeClass('has-error');
+				} else {
+					$('#'+e.id).parent().addClass('has-error');
+				}
+			}
+		});
+		var event_validator = $('#nuevo-evento').validate({
+			rules: event_rules,
+			messages: event_messages,
+			onkeyup: false,
+			errorElement: 'span',
+			errorClass: 'error',
+			onsubmit: false,
+			onfocusout: function(e) { 
+				if(event_validator.element('#'+e.id)) {
 					if($('#'+e.id).parent().hasClass('has-error')) 
 						$('#'+e.id).parent().removeClass('has-error');
 				} else {
@@ -45,14 +100,55 @@ $(function() {
 			}
 		});
 
-		// Validación de formulario previo a submit
+		// Validación de correo disponible
+		$('#correo').focusout(function() {
+			if(userdata_validator.element('#correo')) {
+				$('#correo-loader img').show();
+				$.ajax({url: '../app/procesar.php', data: {'valorCaja1': $(this).val()}, type: 'POST', success: function(response) {
+					if(response=='Usuario registrado') {
+						$('#correo-loader span').text('Correo registrado');
+						if(!$('#correo-loader').parent().parent().hasClass('has-error')) $('#correo-loader').parent().parent().addClass('has-error');
+					} else {
+						$('#correo-loader span').text('');
+						if($('#correo-loader').parent().parent().hasClass('has-error')) $('#correo-loader').parent().parent().removeClass('has-error');
+					}
+					$('#correo-loader img').hide();
+				}});
+			} else {
+				$('#correo-loader').text('');
+			}
+		});
+
+		// Validaciones de formulario previo a submit
+		$('#form-editar').submit(function(event) {
+			$('#error-alert span').text('');
+			if(!$('#form-registro').valid() || $('#correo-loader span').text()!='') {
+				event.preventDefault();
+				var errorFields = [];
+				$('#form-registro input').each(function() {
+					if(userdata_validator.element('#'+$(this).prop('id'))) {
+						if($('#'+$(this).prop('id')).parent().hasClass('has-error')) 
+							$('#'+$(this).prop('id')).parent().removeClass('has-error');
+					} else {
+						$('#'+$(this).prop('id')).parent().addClass('has-error');
+						errorFields.push($(this).data('label'));
+					}
+				});
+				var strErrors = errorFields.join(', ');
+				$('#error-alert span').text(strErrors);
+				$('#error-alert').fadeIn('slow');
+				setTimeout(function() {
+					$('#error-alert').fadeOut('slow');
+				}, 3000);
+			}
+		});
 		$('#nuevo-evento').submit(function(event) {
 			$('#error-alert span').text('');
 			if(!$('#nuevo-evento').valid()) {
 				event.preventDefault();
 				var errorFields = [];
 				$('#nuevo-evento input, #nuevo-evento select').each(function() {
-					if(validator.element('#'+$(this).prop('id'))) {
+					if(event_validator.element('#'+$(this).prop('id'))) {
 						if($('#'+$(this).prop('id')).parent().hasClass('has-error')) 
 							$('#'+$(this).prop('id')).parent().removeClass('has-error');
 					} else {
@@ -70,7 +166,7 @@ $(function() {
 		});
 
 		// Limpieza de formulario por reset
-		$('#clean').click(function() {
+		$('.clean').click(function() {
 			$('span.error').remove();
 			$('div.has-error').removeClass('has-error');
 		});
@@ -80,7 +176,7 @@ $(function() {
 			if(e.viewMode=='days'){
 				$('#date input').val($(this).data('date'));
 				$('#fecha').val($(this).data('date'));
-				if(validator.element('#fecha')) {
+				if(event_validator.element('#fecha')) {
 					if($('#date input').parent().hasClass('has-error'))
 						$('#date input').parent().removeClass('has-error');	
 				} else {	
@@ -97,7 +193,7 @@ $(function() {
 		$('#file-select').click(function() { $('#file_data').trigger('click'); });
 		$('#file_data').change(function() { 
 			$('#file-label').val($(this).val());
-			if(validator.element('#file_data')) {
+			if(event_validator.element('#file_data')) {
 				if($('#file-label').parent().hasClass('has-error'))
 					$('#file-label').parent().removeClass('has-error');	
 			} else {	
