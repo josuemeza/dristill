@@ -68,8 +68,8 @@
 							<button id="editar_datos" class="btn btn-default" type="button">Editar</button>
 						</div>
 						<div class="buttons" style="display: none;">
-							<button id="clean" class="btn btn-default" type="reset">Limpiar</button>
-							<button id="submit" class="btn btn-primary" type="submit">Registrar</button>
+							<button class="clean btn btn-default" type="reset">Limpiar</button>
+							<button class="submit btn btn-primary" type="submit">Registrar</button>
 						</div>
 					</div>
 				</form>
@@ -143,8 +143,8 @@
 					</div>
 				</div>
 				<div class="text-right">
-					<button id="clean" class="btn btn-default" type="reset">Limpiar</button>
-					<button id="submit" class="btn btn-primary" type="submit">Guardar</button>
+					<button class="clean btn btn-default" type="reset">Limpiar</button>
+					<button class="submit btn btn-primary" type="submit">Guardar</button>
 				</div>
 			</form>
 		</div>
