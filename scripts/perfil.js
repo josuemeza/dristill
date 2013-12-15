@@ -4,7 +4,7 @@ $(function() {
 		var rules = {
 			nombre: { required: true, minlength: 3, maxlength: 100 },
 			direccion: { required: true, minlength: 3, maxlength: 100 },
-			fecha: { valid_date: true },
+			fecha: { required: true, valid_date: true },
 			file_data: { file_type: ['image'] }
 		}
 		// Mensajes de validación
@@ -18,6 +18,9 @@ $(function() {
 				required: 'Dirección requerida.',
 				minlength: 'Debe tener al menos 3 caracteres.',
 				maxlength: 'Debe tener máximo 100 caracteres.'
+			},
+			fecha: {
+				required: 'Fecha requerida.'
 			},
 			file_data: {
 				file_type: 'Solo puede agregar imagenes.'

@@ -7,8 +7,8 @@
 	include($root.'assets/html/header.php');
 ?>
 
-<div class="container no-slider">
+<section class="container no-slider">
 
-</div>
+</section>
 
 <?php include($root.'assets/html/footer.php');?>

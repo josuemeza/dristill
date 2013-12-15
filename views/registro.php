@@ -1,7 +1,7 @@
 <?php 
 	$titulo = 'Dristill - Registro';
 	$root = '../';
-	$nav_elements = array("inicio", "registro", "login");
+	$nav_elements = array("inicio", "perfil", "registro", "login");
 	$nav_active = "registro";
 	include($root.'assets/html/header.php');
 ?>
@@ -13,19 +13,19 @@
 	<strong>Campos erroneos: </strong>
 	<span></span>
 </div>
-<div class="container no-slider">
-	<div id="registro" class="row">
+<section class="container no-slider">
+	<article id="registro" class="row">
 		<h1 class="col-md-4 col-md-offset-4">Registro</h1>
 		<div class="col-md-4 col-md-offset-4">
 			<form id="form-registro" class="form-horizontal" role="form" method="post" action="registro-completo.php" enctype="multipart/form-data">
 				<div class="form-group">
-					<label class="col-md-3 control-label">RUN</label>
+					<label for="run_input" class="col-md-3 control-label">RUN</label>
 					<div class="col-md-9">
 						<input id="run_input" name="run_input" data-label="RUN" type="text" placeholder="12.345.678-9" class="form-control"/>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-md-3 control-label">Correo</label>
+					<label for="correo" class="col-md-3 control-label">Correo</label>
 					<div class="col-md-9">
 						<input id="correo" name="correo" data-label="Correo" type="text" placeholder="correo@correo.correo" class="form-control"/>
 						<span id="correo-loader">
@@ -35,13 +35,13 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-md-3 control-label">Contraseña</label>
+					<label for="password" class="col-md-3 control-label">Contraseña</label>
 					<div class="col-md-9">
 						<input id="password" name="password" data-label="Contraseña" type="password" placeholder="contraseña" class="form-control"/>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-md-3 control-label">Confirme</label>
+					<label for="confirmacion" class="col-md-3 control-label">Confirme</label>
 					<div class="col-md-9">
 						<input id="confirmacion" name="confirmacion" data-label="Confirmación" type="password" placeholder="confirmación de contraseña" class="form-control"/>
 					</div>
@@ -52,7 +52,7 @@
 				</div>
 			</form>
 		</div>
-	</div>
-</div>
+	</article>
+</section>
 
 <?php include($root.'assets/html/footer.php');?>

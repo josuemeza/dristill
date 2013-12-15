@@ -5,7 +5,7 @@
 	$nav_active = "perfil";
 	/*session_start();
 	if (!$_SESSION['loguser']) echo '<script type="text/javascript">window.location="'. $root . 'views/perfil.php"</script>';
-	else*/ $nav_elements = array("inicio", /*"registro",*/ "perfil", "logout");
+	else*/ $nav_elements = array("inicio", "perfil", "registro", "logout");
 	include($root.'app/events.php');
 	include($root.'assets/html/header.php');
 ?>
@@ -17,8 +17,8 @@
 	<strong>Campos erroneos: </strong>
 	<span></span>
 </div>
-<div class="container no-slider" id="casilla">
-	<div class="row">
+<section class="container no-slider" id="casilla">
+	<article class="row">
 		<div class="col-md-10 col-md-offset-1">	
 			<ul id="inner-nav" class="nav nav-pills">
 				<li class="active"><a data-view="mis_datos" href="#">Mis datos</a></li>
@@ -26,23 +26,23 @@
 				<li><a data-view="lista_eventos" href="#">Lista de eventos</a></li>
 			</ul>
 		</div>
-	</div>
-	<div id="mis_datos" class="row">
+	</article>
+	<article id="mis_datos" class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<h2 class="col-md-12">Mis datos</h2>
 			<div class="col-md-2 col-md-offset-1" style="text-align: center">
-				<img src="<?php echo $root;?>assets/img/perfil.jpg" width="180" class="img-circle"/>
+				<img src="<?php echo $root;?>assets/img/user.png" width="180" class="img-circle"/>
 			</div>
 			<div class="col-md-8">
 				<form id="form-editar" class="form-horizontal" role="form" method="post" action="editar-completo.php" enctype="multipart/form-data">
 					<div class="form-group">
-						<label class="col-md-3 control-label">RUN</label>
+						<label for="run_input" class="col-md-3 control-label">RUN</label>
 						<div class="col-md-9">
 							<input id="run_input" name="run_input" data-label="RUN" type="text" placeholder="12.345.678-9" class="form-control"/>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-md-3 control-label">Correo</label>
+						<label for="correo" class="col-md-3 control-label">Correo</label>
 						<div class="col-md-9">
 							<input id="correo" name="correo" data-label="Correo" type="text" placeholder="correo@correo.correo" class="form-control"/>
 							<span id="correo-loader">
@@ -52,13 +52,13 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-md-3 control-label">Contraseña</label>
+						<label for="password" class="col-md-3 control-label">Contraseña</label>
 						<div class="col-md-9">
 							<input id="password" name="password" data-label="Contraseña" type="password" placeholder="contraseña" class="form-control"/>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-md-3 control-label">Confirme</label>
+						<label for="confirmacion" class="col-md-3 control-label">Confirme</label>
 						<div class="col-md-9">
 							<input id="confirmacion" name="confirmacion" data-label="Confirmación" type="password" placeholder="confirmación de contraseña" class="form-control"/>
 						</div>
@@ -75,13 +75,13 @@
 				</form>
 			</div>
 		</div>
-	</div>
-	<div id="crear_evento" class="row" style="display: none;">
+	</article>
+	<article id="crear_evento" class="row" style="display: none;">
 		<div class="col-md-6 col-md-offset-3">
 			<h2 class="col-md-12">Crear Evento</h2>
-			<form id="nuevo-evento" class="form-horizontal" method="post" action="# ">
+			<form id="nuevo-evento" class="form-horizontal" method="post" action="<?php echo $root;?>index.php">
 				<div class="form-group">
-					<label class="col-md-3 control-label">Rubro</label>
+					<label for="rubro" class="col-md-3 control-label">Rubro</label>
 					<div class="col-md-9">
 						<select id="rubro" name="rubro" data-label="Rubro" class="form-control">
 							<option value="1" selected>Fiesta</option>
@@ -91,19 +91,19 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-md-3 control-label">Nombre</label>
+					<label for="nombre" class="col-md-3 control-label">Nombre</label>
 					<div class="col-md-9">
 						<input id="nombre" name="nombre" data-label="Nombre" type="text" class="form-control"/>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-md-3 control-label">Dirección</label>
+					<label for="direccion" class="col-md-3 control-label">Dirección</label>
 					<div class="col-md-9">
 						<input id="direccion" name="direccion" data-label="Dirección" type="text" class="form-control"/>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-md-3 control-label">Ciudad</label>
+					<label for="ciudad" class="col-md-3 control-label">Ciudad</label>
 					<div class="col-md-9">
 						<select id="ciudad" name="ciudad" data-label="Ciudad" class="form-control">
 							<option value="1" selected>Santiago</option>
@@ -115,7 +115,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-md-3 control-label">Fecha del evento</label>
+					<label for="fecha" class="col-md-3 control-label">Fecha del evento</label>
 					<div class="col-md-9">
 						<div id="date" class="input-group">
 							<input id="date-label" name="date-label" data-label="Fecha" type="text" placeholder="AAAA-MM-DD" class="form-control" readonly/>
@@ -129,7 +129,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-md-3 control-label">Imagen</label>
+					<label for="file_data" class="col-md-3 control-label">Imagen</label>
 					<div class="col-md-9">
 						<div class="input-group">
 							<input id="file-label" type="text" class="form-control" readonly/>
@@ -148,8 +148,8 @@
 				</div>
 			</form>
 		</div>
-	</div>
-	<div id="lista_eventos" class="row" style="display: none;">
+	</article>
+	<article id="lista_eventos" class="row" style="display: none;">
 		<div class="col-md-10 col-md-offset-1">
 			<h2>Mis eventos</h2>
 			<table id="my-events" class="table table-striped table-hover">
@@ -183,8 +183,8 @@
 				</tbody>
 			</table>
 		</div>
-	</div>
-</div>
+	</article>
+</section>
 
 
 <?php include($root.'assets/html/footer.php');?>
