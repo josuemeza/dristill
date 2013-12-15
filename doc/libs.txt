@@ -21,7 +21,7 @@ Librerias:
 		- scripts/lib/bootstrap-datepicker.js
 
 3.- jQuery
-	Version: 1.9.0
+	Version: 1.10.2
 	Uso: Mucha magia.
 	Dependencias:
 		JS:
