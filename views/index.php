@@ -4,8 +4,8 @@
 	$nav_elements = NULL;
 	$nav_active = "inicio";
 	session_start();
-	if (!$_SESSION['loguser']) $nav_elements = array("inicio", "registro", "perfil", "login");
-	else $nav_elements = array("inicio", "registro", "perfil", "logout");
+	if (!$_SESSION['loguser']) $nav_elements = array("inicio", "perfil", "registro", "login");
+	else $nav_elements = array("inicio", "perfil", "registro", "logout");
 	//session_destroy();
 	include($root.'app/events.php');
 	include($root.'assets/html/header.php');
@@ -25,7 +25,7 @@
 		<?php $i = 0; foreach($top_events as $e) {?>
 			<div class="item <?php echo $i==0 ? 'active' : '';?>">
 				<!--img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt=":)"/-->
-				<img src="<?php echo $root;?>assets/img/eventos/<?php echo $e->getImagenPath();?>" alt=":)"/>
+				<img src="<?php echo $root;?>assets/img/eventos/<?php echo $e->getImagenPath();?>" class="img-responsive" alt=":)"/>
 				<div class="container">
 					<div class="carousel-caption">
 						<h2>
@@ -50,11 +50,11 @@
 	</div>
 	<a class="left carousel-control" href="#top-events" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
 	<a class="right carousel-control" href="#top-events" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-</div><!-- /.carousel -->
+</div><!-- carousel -->
 
-<div class="container">
+<section class="container">
 	<!-- Historial de eventos -->
-	<div class="row">
+	<article class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<h2>Historial de eventos</h2>
 			<table id="history-events" class="table table-striped table-hover">
@@ -88,21 +88,21 @@
 				</tbody>
 			</table>
 		</div>
-	</div>
+	</article>
 
 	<!-- About - Quienes somos y login -->
-	<div class="row">
+	<article class="row">
 		<div class="col-md-6 col-md-offset-1">
 			<h2>Somos una empresa cachilupi</h2>
 			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 		</div>
 		<div id="login" class="col-md-3 col-md-offset-1" <?php echo $_SESSION['loguser'] ? 'style="display: none;"' : '';?>>
 			<h2>Eres usuario?</h2>
-			<form class="form-signin" role="form">
+			<form class="form-signin" role="form" action="<?php echo $root;?>views/perfil.php" method="POST">
 				<input type="text" class="form-control" placeholder="nombre de usuario">
 				<input type="password" class="form-control" placeholder="contraseña">
-				<label class="checkbox">
-					<input type="checkbox" value="remember-me"> Recordar esta cuenta
+				<label for="recordarme" class="checkbox">
+					<input id="recordarme" name="recordarme" type="checkbox" value="remember-me"> Recordar esta cuenta
 				</label>
 				<div class="text-right">
 					<button class="btn btn-default btn-lg" type="button">Regístrate</button>
@@ -110,7 +110,7 @@
 				</div>
 			</form>
 		</div>
-	</div>
-</div>
+	</article>
+</section>
 
 <?php include($root.'assets/html/footer.php');?>

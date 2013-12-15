@@ -1,5 +1,4 @@
 $(function() {
-
 	$(document).ready(function() {
 		// Reglas de validación
 		var rules = {
@@ -82,7 +81,6 @@ $(function() {
 		// Validación de formulario previo a submit
 		$('#form-registro').submit(function(event) {
 			$('#error-alert span').text('');
-			$('#error-alert').hide();
 			if(!$('#form-registro').valid() || $('#correo-loader span').text()!='') {
 				event.preventDefault();
 				var errorFields = [];
@@ -98,6 +96,9 @@ $(function() {
 				var strErrors = errorFields.join(', ');
 				$('#error-alert span').text(strErrors);
 				$('#error-alert').fadeIn('slow');
+				setTimeout(function() {
+					$('#error-alert').fadeOut('slow');
+				}, 3000);
 			}
 		});
 
