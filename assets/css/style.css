@@ -1,18 +1,9 @@
-.top {
-	position: fixed;
-	top: 0px;
-	width: 100%;
-	z-index: 99;
-}
+/* Estilos generales */
+.no-slider { margin-top: 8em; }
+footer { padding-top: 8em; }
 
-.no-slider {
-	margin-top: 8em;
-}
+/* Estilo para alertas */
+.top { position: fixed; top: 0px; width: 100%; z-index: 99; }
 
-#history-events .table-col-1 {
-	width: 8em;
-}
-
-footer {
-	padding-top: 8em;
-}
+/* Estilos de vista index */
+#history-events .table-col-1 { width: 8em; }
