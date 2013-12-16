@@ -1,5 +1,5 @@
 $(function() {
 	$(document).ready(function() {
-		$('#history-events').fixedHeaderTable({height: '22em'});
+		$('#history-events').fixedHeaderTable({height: '22em', fixedColumn: true});
 	});
 });
