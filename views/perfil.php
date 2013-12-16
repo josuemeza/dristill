@@ -152,7 +152,7 @@
 	<article id="lista_eventos" class="row" style="display: none;">
 		<div class="col-md-10 col-md-offset-1">
 			<h2>Mis eventos</h2>
-			<table id="my-events" class="table table-striped table-hover">
+			<table id="my-events" class="table table-striped table-hover" summary="Tabla historial de eventos">
 				<thead>
 					<tr>
 						<th class="table-col-1">Fecha</th>

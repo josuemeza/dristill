@@ -2,16 +2,16 @@
 	include('../model/Evento.php');
 
 	$top_events = array(
-		new Evento('Evento A', 'Fiesta', '22/10/2013', '', '', 'imagen2.jpg'),
-		new Evento('Evento B', 'Fiesta', '22/10/2013', '', '', 'imagen3.jpg'),
-		new Evento('Evento C', 'Fiesta', '22/10/2013', '', '', 'imagen4.jpg'),
-		new Evento('Evento D', 'Fiesta', '22/10/2013', '', '', 'imagen5.jpg'),
-		new Evento('Evento E', 'Fiesta', '22/10/2013', '', '', 'imagen6.jpg'),
-		new Evento('Evento F', 'Fiesta', '22/10/2013', '', '', 'imagen7.jpg'),
-		new Evento('Evento G', 'Fiesta', '22/10/2013', '', '', 'imagen8.jpg'),
-		new Evento('Evento H', 'Fiesta', '22/10/2013', '', '', 'imagen1.jpg'),
-		new Evento('Evento I', 'Fiesta', '22/10/2013', '', '', 'imagen13.jpg'),
-		new Evento('Evento J', 'Fiesta', '22/10/2013', '', '', 'imagen14.jpg')
+		new Evento('Todos a la playa', 'Paseo', '20/01/2014', '', '', 'imagen6.jpg'),
+		new Evento('Jimmy Maicol en concierto', 'Fiesta', '26/01/2014', '', '', 'imagen7.jpg'),
+		new Evento('Retiro espiritual', 'Paseo', '03/02/2014', '', '', 'imagen5.jpg'),
+		new Evento('DJ Carlos en vivo', 'Fiesta', '28/02/2014', '', '', 'imagen8.jpg'),
+		new Evento('La sensación blanca - Perú', 'Fiesta', '29/02/2014', '', '', 'imagen14.jpg'),
+		new Evento('Maratón de polka', 'Fiesta', '15/03/2014', '', '', 'imagen1.jpg'),
+		new Evento('La sensación blanca - Chile', 'Fiesta', '15/04/2014', '', '', 'imagen2.jpg'),
+		new Evento('La sensación blanca - España', 'Fiesta', '15/06/2014', '', '', 'imagen3.jpg'),
+		new Evento('Campos de crema', 'Fiesta', '01/08/2014', '', '', 'imagen4.jpg'),
+		new Evento('Fiesta de rayos lacer', 'Fiesta', '22/10/2014', '', '', 'imagen13.jpg')
 	);
 
 	$history_events = array(

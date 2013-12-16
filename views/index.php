@@ -57,7 +57,7 @@
 	<article class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<h2>Historial de eventos</h2>
-			<table id="history-events" class="table table-striped table-hover">
+			<table id="history-events" class="table table-striped table-hover" summary="Tabla historial de eventos">
 				<thead>
 					<tr>
 						<th class="table-col-1">Fecha</th>
