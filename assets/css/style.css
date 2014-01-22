@@ -8,3 +8,6 @@ footer { padding-top: 8em; }
 /* Estilos de vista index */
 .carousel-inner h2, .carousel-inner p { text-shadow: black 0.0em 0.0em 0.2em; }
 #history-events .table-col-1 { width: 8em; }
+
+/* Estilos de Single de evento*/
+#map-canvas { height: 350px; }

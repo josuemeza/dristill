@@ -19,7 +19,7 @@
 				</label>
 				<div class="text-right">
 					<input name="action" value="login" type="hidden" />
-					<button class="btn btn-default btn-lg" type="button">Regístrate</button>
+					<a href="registro.php" class="btn btn-default btn-lg" type="button">Regístrate</a>
 					<button class="btn btn-primary btn-lg" type="submit">Entrar</button>
 				</div>
 			</form>

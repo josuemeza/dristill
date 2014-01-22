@@ -86,7 +86,7 @@ $(function() {
 				event.preventDefault();
 				var errorFields = [];
 				$('#form-registro input').each(function() {
-					if(validator.element('#'+$(this).prop('id'))) {
+					if($(this).prop('id') && validator.element('#'+$(this).prop('id'))) {
 						if($('#'+$(this).prop('id')).parent().hasClass('has-error')) 
 							$('#'+$(this).prop('id')).parent().removeClass('has-error');
 					} else {

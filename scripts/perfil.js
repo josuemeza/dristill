@@ -11,8 +11,8 @@ $(function() {
 			nombre: { required: true, minlength: 3, maxlength: 100 },
 			direccion: { required: true, minlength: 3, maxlength: 100 },
 			fecha: { required: true, valid_date: true },
-			longitud: { required: true, digits: true },
-			latitud: { required: true, digits: true },
+			longitud: { required: true, number: true, min: -180, max: 180 },
+			latitud: { required: true, number: true, min: -90, max: 90 },
 			file_data: { required: true, file_type: ['image'] }
 		}
 
@@ -56,11 +56,15 @@ $(function() {
 			},
 			longitud: {
 				required: 'Longitud requerida.',
-				digits: 'Solo debe contener números.'
+				digits: 'Solo debe contener números.',
+				min: 'Valor mínimo: -180.',
+				max: 'Valor máximo: 180.'
 			},
 			latitud: {
 				required: 'Latitud requerida.',
-				digits: 'Solo debe contener números.'
+				digits: 'Solo debe contener números.',
+				min: 'Valor mínimo: -90.',
+				max: 'Valor máximo: 90.'
 			},
 			fecha: {
 				required: 'Fecha requerida.'
@@ -77,22 +81,25 @@ $(function() {
 		});
 
 		// Validadores
-		var userdata_validator = $('#form-editar').validate({
-			rules: userdata_rules,
-			messages: userdata_messages,
-			onkeyup: false,
-			errorElement: 'span',
-			errorClass: 'error',
-			onsubmit: false,
-			onfocusout: function(e) { 
-				if(userdata_validator.element('#'+e.id)) {
-					if($('#'+e.id).parent().hasClass('has-error')) 
-						$('#'+e.id).parent().removeClass('has-error');
-				} else {
-					$('#'+e.id).parent().addClass('has-error');
+		var userdata_validator = null;
+		function initUserdataValidator() {
+			userdata_validator = $('#form-editar').validate({
+				rules: userdata_rules,
+				messages: userdata_messages,
+				onkeyup: false,
+				errorElement: 'span',
+				errorClass: 'error',
+				onsubmit: false,
+				onfocusout: function(e) { 
+					if(userdata_validator.element('#'+e.id)) {
+						if($('#'+e.id).parent().hasClass('has-error')) 
+							$('#'+e.id).parent().removeClass('has-error');
+					} else {
+						$('#'+e.id).parent().addClass('has-error');
+					}
 				}
-			}
-		});
+			});
+		}
 		var event_validator = $('#nuevo-evento').validate({
 			rules: event_rules,
 			messages: event_messages,
@@ -158,7 +165,7 @@ $(function() {
 				event.preventDefault();
 				var errorFields = [];
 				$('#nuevo-evento input, #nuevo-evento select').each(function() {
-					if(event_validator.element('#'+$(this).prop('id'))) {
+					if($(this).prop('id') && event_validator.element('#'+$(this).prop('id'))) {
 						if($('#'+$(this).prop('id')).parent().hasClass('has-error')) 
 							$('#'+$(this).prop('id')).parent().removeClass('has-error');
 					} else {
@@ -229,6 +236,7 @@ $(function() {
 			$('#form-editar .buttons').show();
 			$('#form-editar input').prop('disabled', false);
 			$('div.confirmacion').show();
+			initUserdataValidator();
 		});
 		$('#form-editar input').prop('disabled', true);
 

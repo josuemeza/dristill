@@ -119,11 +119,11 @@
 				<div class="form-group">
 					<label for="ciudad" class="col-md-3 control-label">Coordenadas</label>
 					<div class=" container col-md-9">
-						<div class="col-md-6" style="padding: 0px 2px 0px 0px;">
-							<input id="longitud" name="longitud" data-label="Coordenadas" placeholder="Longitud" type="text" class="form-control"/>
-						</div>
 						<div class="col-md-6" style="padding: 0px 0px 0px 2px;">
 							<input id="latitud" name="latitud" data-label="Coordenadas" placeholder="Latitud" type="text" class="form-control"/>
+						</div>
+						<div class="col-md-6" style="padding: 0px 2px 0px 0px;">
+							<input id="longitud" name="longitud" data-label="Coordenadas" placeholder="Longitud" type="text" class="form-control"/>
 						</div>
 					</div>
 				</div>
@@ -186,7 +186,7 @@
 								<?php echo $e->getFecha();?>
 							</td>
 							<td>
-								<a href="#">
+								<a href="<?php echo $root.'views/single-evento.php?id='.$e->getId().'&mail='.$e->getUsrMail();?>">
 									<?php echo $e->getTitulo();?>
 								</a>
 							</td>

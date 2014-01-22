@@ -26,24 +26,26 @@
 	<div class="carousel-inner">
 		<?php $i = 0; foreach($topEvents as $e) {?>
 			<div class="item <?php echo $i==0 ? 'active' : '';?>">
-				<img src="<?php echo $root.'controller/EventController.php?id='.$e->getId().'&mail='.$e->getUsrMail();?>" alt=":)"/>
+				<img src="<?php echo $root.'controller/EventController.php?action=printImage&id='.$e->getId().'&mail='.$e->getUsrMail();?>" alt=":)"/>
 				<div class="container">
 					<div class="carousel-caption">
-						<h2>
-							<?php echo $e->getTitulo();?>
-						</h2>
-						<p>
-							<strong>Rubro:</strong>
-							<span>
-								<?php echo $e->getRubro();?>
-							</span>
-						</p>
-						<p>
-							<strong>Fecha del evento:</strong>
-							<span>
-								<?php echo $e->getFecha();?>
-							</span>
-						</p>
+						<a href="<?php echo $root.'views/single-evento.php?id='.$e->getId().'&mail='.$e->getUsrMail();?>" style="text-decoration: none; color: #FFF;">
+							<h2>
+								<?php echo $e->getTitulo();?>
+							</h2>
+							<p>
+								<strong>Rubro:</strong>
+								<span>
+									<?php echo $e->getRubro();?>
+								</span>
+							</p>
+							<p>
+								<strong>Fecha del evento:</strong>
+								<span>
+									<?php echo $e->getFecha();?>
+								</span>
+							</p>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -74,7 +76,7 @@
 								<?php echo $e->getFecha();?>
 							</td>
 							<td>
-								<a href="#">
+								<a href="<?php echo $root.'views/single-evento.php?id='.$e->getId().'&mail='.$e->getUsrMail();?>">
 									<?php echo $e->getTitulo();?>
 								</a>
 							</td>
@@ -90,6 +92,48 @@
 			</table>
 		</div>
 	</article>
+
+	<!-- Eventos de usuario -->
+	<?php if($_SESSION['loguser']) {?>
+		<article class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<h2>Mis eventos</h2>
+				<table id="my-events" class="table table-striped table-hover" summary="Tabla historial de eventos">
+					<thead>
+						<tr>
+							<th class="table-col-1">Fecha</th>
+							<th class="table-col-2">Nombre</th>
+							<th class="table-col-3">Dirección</th>
+							<th class="table-col-4">Ciudad</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php 
+							$myEvents = $eventController->getMyEvents($_SESSION['loguser']['mail']);
+							foreach($myEvents as $e) {
+						?>
+							<tr>
+								<td>
+									<?php echo $e->getFecha();?>
+								</td>
+								<td>
+									<a href="<?php echo $root.'views/single-evento.php?id='.$e->getId().'&mail='.$e->getUsrMail();?>">
+										<?php echo $e->getTitulo();?>
+									</a>
+								</td>
+								<td>
+									<?php echo $e->getDireccion();?>
+								</td>
+								<td>
+									<?php echo $e->getCiudad();?>
+								</td>
+							</tr>
+						<?php }?>
+					</tbody>
+				</table>
+			</div>
+		</article>
+	<?php }?>
 
 	<!-- About - Quienes somos y login -->
 	<article class="row">
@@ -107,7 +151,7 @@
 				</label>
 				<div class="text-right">
 					<input name="action" value="login" type="hidden" />
-					<button class="btn btn-default btn-lg" type="button">Regístrate</button>
+					<a href="registro.php" class="btn btn-default btn-lg" type="button">Regístrate</a>
 					<button class="btn btn-primary btn-lg" type="submit">Entrar</button>
 				</div>
 			</form>
