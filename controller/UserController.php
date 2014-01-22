@@ -1,9 +1,8 @@
 <?php
-	include('DatabaseAccess.php');
+	include('conexion.php');
 
 	class UserController {
 
-		private $root = '../';
 		private $dbAccess;
 
 		public function __construct(){
@@ -42,7 +41,7 @@
 		private function editUser($lastMail, $run, $mail, $password) {
 			$result = $this->dbAccess->update('Usuario', "rut='" . $run . "', Email='" . $mail . "', Contrasena='" . $password . "'", "Email='" . $lastMail . "'");
 			if($result) {
-				$result = $this->dbAccess->select('Usuario', array('rut'), "Email='" . $mail . "' AND Contrasena='" . $password . "'");
+				$result = $this->dbAccess->select('Usuario', array('rut'), "Email='" . $mail . "' AND Contrasena='" . $password . "'", "", "");
 				if($result['rows_count']==1) {
 					session_start();
 					$_SESSION['loguser'] = array(
@@ -59,13 +58,13 @@
 		}
 
 		private function invalidMail($mail) {
-			$result = $this->dbAccess->select('Usuario', array('rut'), "Email='" . $mail . "';");
+			$result = $this->dbAccess->select('Usuario', array('rut'), "Email='" . $mail . "';", "", "");
 			if($result['rows_count']==1) echo "invalid";
 			else echo "valid";
 		}
 
 		private function login($mail, $password) {
-			$result = $this->dbAccess->select('Usuario', array('rut'), "Email='" . $mail . "' AND Contrasena='" . $password . "'");
+			$result = $this->dbAccess->select('Usuario', array('rut'), "Email='" . $mail . "' AND Contrasena='" . $password . "'", "", "");
 			if($result['rows_count']==1) {
 				session_start();
 				$_SESSION['loguser'] = array(
@@ -94,5 +93,6 @@
 
 	}
 
-	(new UserController())->request($_POST);
+	$userController = new UserController();
+	$userController->request($_POST);
 ?>

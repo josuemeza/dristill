@@ -1,6 +1,8 @@
 <?php
 	class Evento {
 
+		private $id;
+		private $usrMail;
 		private $titulo;
 		private $rubro;
 		private $fecha;
@@ -8,60 +10,69 @@
 		private $direccion;
 		private $imagenPath;
 
-		function __construct($titulo, $rubro, $fecha, $ciudad, $direccion, $imagenPath) {
+		public function __construct($id, $usrMail, $titulo, $rubro, $fecha, $ciudad, $direccion) {
+			$this->id = $id;
+			$this->usrMail = $usrMail;
 			$this->titulo = $titulo;
 			$this->rubro = $rubro;
 			$this->fecha = $fecha;
 			$this->ciudad = $ciudad;
 			$this->direccion = $direccion;
-			$this->imagenPath = $imagenPath;
 		}
 
-		function getTitulo() {
+		public function getId() {
+			return $this->id;
+		}
+
+		public function getUsrMail() {
+			return $this->usrMail;
+		}
+
+		public function getTitulo() {
 			return $this->titulo;
 		}
 
-		function setTitulo($newTitulo) {
+		public function setTitulo($newTitulo) {
 			$this->titulo = $newTitulo;
 		}
 
-		function getRubro() {
+		public function getRubro() {
 			return $this->rubro;
 		}
 
-		function setRubro($newRubro) {
+		public function setRubro($newRubro) {
 			$this->rubro = $newRubro;
 		}
 
-		function getFecha() {
+		public function getFecha() {
 			return $this->fecha;
 		}
 
-		function setFecha($newFecha) {
+		public function setFecha($newFecha) {
 			$this->fecha = $newFecha;
 		}
 
-		function getCiudad() {
+		public function getCiudad() {
 			return $this->ciudad;
 		}
 
-		function setCiudad($newCiudad) {
+		public function setCiudad($newCiudad) {
 			$this->ciudad = $newCiudad;
 		}
 
-		function getDireccion() {
+		public function getDireccion() {
 			return $this->direccion;
 		}
 
-		function setDireccion($newDireccion) {
+		public function setDireccion($newDireccion) {
 			$this->direccion = $newDireccion;
 		}
 
-		function getImagenPath() {
+		public function getImagenPath() {
 			return $this->imagenPath;
 		}
 
-		function setImagenPath($newImagenPath) {
+		public function setImagenPath($newImagenPath) {
 			$this->imagenPath = $newImagenPath;
 		}
 

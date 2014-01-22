@@ -18,8 +18,8 @@
 			return $response;
 		}
 
-		public function select($table, $columns, $selectors){
-			$query = 'SELECT ' . implode(',', $columns) . ' FROM ' . $table . ($selectors!='' ? " WHERE " . $selectors . ';' : ';');
+		public function select($table, $columns, $selectors, $order, $limit){
+			$query = 'SELECT ' . implode(',', $columns) . ' FROM ' . $table . ($selectors!='' ? " WHERE " . $selectors : '') . ($order!='' ? " ORDER BY " . $order : "") . ($limit!='' ? " LIMIT " . $limit : "") . ";";
 			$connect = mysql_connect($this->HOST, $this->DB_USER, $this->DB_PASS);
 			mysql_select_db($this->DATABASE);
 			$response = mysql_query($query);

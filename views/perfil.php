@@ -6,7 +6,7 @@
 	session_start();
 	if (!$_SESSION['loguser']) echo '<script type="text/javascript">window.location="'. $root . 'views/login.php"</script>';
 	else $nav_elements = array("inicio", "perfil", "logout");
-	include($root.'controller/events.php');
+	include($root.'controller/EventController.php');
 	include($root.'assets/html/header.php');
 ?>
 
@@ -81,14 +81,14 @@
 	<article id="crear_evento" class="row" style="display: none;">
 		<div class="col-md-6 col-md-offset-3">
 			<h2 class="col-md-12">Crear Evento</h2>
-			<form id="nuevo-evento" class="form-horizontal" method="post" action="<?php echo $root;?>index.php">
+			<form id="nuevo-evento" class="form-horizontal" method="post" action="<?php echo $root;?>controller/EventController.php" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="rubro" class="col-md-3 control-label">Rubro</label>
 					<div class="col-md-9">
 						<select id="rubro" name="rubro" data-label="Rubro" class="form-control">
-							<option value="1" selected>Fiesta</option>
-							<option value="2">Paseo</option>
-							<option value="3">Otros</option>
+							<option selected>Fiesta</option>
+							<option>Paseo</option>
+							<option>Otros</option>
 						</select>
 					</div>
 				</div>
@@ -108,12 +108,23 @@
 					<label for="ciudad" class="col-md-3 control-label">Ciudad</label>
 					<div class="col-md-9">
 						<select id="ciudad" name="ciudad" data-label="Ciudad" class="form-control">
-							<option value="1" selected>Santiago</option>
-							<option value="2" >Arica</option>
-							<option value="3" >Antofagasta</option>
-							<option value="4" >Concepción</option>
-							<option value="5" >Valparaíso</option>
+							<option selected>Santiago</option>
+							<option>Arica</option>
+							<option>Antofagasta</option>
+							<option>Concepción</option>
+							<option>Valparaíso</option>
 						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="ciudad" class="col-md-3 control-label">Coordenadas</label>
+					<div class=" container col-md-9">
+						<div class="col-md-6" style="padding: 0px 2px 0px 0px;">
+							<input id="longitud" name="longitud" data-label="Coordenadas" placeholder="Longitud" type="text" class="form-control"/>
+						</div>
+						<div class="col-md-6" style="padding: 0px 0px 0px 2px;">
+							<input id="latitud" name="latitud" data-label="Coordenadas" placeholder="Latitud" type="text" class="form-control"/>
+						</div>
 					</div>
 				</div>
 				<div class="form-group">
@@ -145,6 +156,8 @@
 					</div>
 				</div>
 				<div class="text-right">
+					<input name="action" value="crear" type="hidden" />
+					<input name="correo" type="hidden" value="<?php echo $_SESSION['loguser']['mail'];?>" />
 					<button class="clean btn btn-default" type="reset">Limpiar</button>
 					<button class="submit btn btn-primary" type="submit">Guardar</button>
 				</div>
@@ -164,7 +177,10 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php foreach($history_events as $e) {?>
+					<?php 
+						$myEvents = $eventController->getMyEvents($_SESSION['loguser']['mail']);
+						foreach($myEvents as $e) {
+					?>
 						<tr>
 							<td>
 								<?php echo $e->getFecha();?>
