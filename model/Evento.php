@@ -8,9 +8,11 @@
 		private $fecha;
 		private $ciudad;
 		private $direccion;
+		private $latitud;
+		private $longitud;
 		private $imagenPath;
 
-		public function __construct($id, $usrMail, $titulo, $rubro, $fecha, $ciudad, $direccion) {
+		public function __construct($id, $usrMail, $titulo, $rubro, $fecha, $ciudad, $direccion, $latitud, $longitud) {
 			$this->id = $id;
 			$this->usrMail = $usrMail;
 			$this->titulo = $titulo;
@@ -18,6 +20,8 @@
 			$this->fecha = $fecha;
 			$this->ciudad = $ciudad;
 			$this->direccion = $direccion;
+			$this->latitud = $latitud;
+			$this->longitud = $longitud;
 		}
 
 		public function getId() {
@@ -26,6 +30,22 @@
 
 		public function getUsrMail() {
 			return $this->usrMail;
+		}
+
+		public function getLatitud() {
+			return $this->latitud;
+		}
+
+		public function setLatitud($latitud) {
+			$this->latitud = $latitud;
+		}
+
+		public function getLongitud() {
+			return $this->longitud;
+		}
+
+		public function setLongitud() {
+			$this->longitud = $longitud;
 		}
 
 		public function getTitulo() {

@@ -3,8 +3,9 @@
 	$titulo = 'Dristill - Registro';
 	$nav_elements = NULL;
 	$nav_active = "perfil";
-	/*if (!$_SESSION['loguser']) echo '<script type="text/javascript">window.location="'. $root . 'views/login.php"</script>';
-	else*/ $nav_elements = array("inicio", "perfil", "logout");
+	session_start();
+	if(!$_SESSION['loguser']) echo '<script type="text/javascript">window.location="'. $root . 'views/login.php"</script>';
+	else $nav_elements = array("inicio", "perfil", "logout");
 	include($root.'assets/html/header.php');
 ?>
 
