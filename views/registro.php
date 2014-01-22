@@ -1,8 +1,9 @@
 <?php 
 	$titulo = 'Dristill - Registro';
 	$root = '../';
-	$nav_elements = array("inicio", "perfil", "registro", "login");
 	$nav_active = "registro";
+	if (!$_SESSION['loguser']) $nav_elements = array("inicio", "registro", "login");
+	else $nav_elements = array("inicio", "perfil", "logout");
 	include($root.'assets/html/header.php');
 ?>
 
@@ -17,7 +18,7 @@
 	<article id="registro" class="row">
 		<h1 class="col-md-4 col-md-offset-4">Registro</h1>
 		<div class="col-md-4 col-md-offset-4">
-			<form id="form-registro" class="form-horizontal" role="form" method="post" action="registro-completo.php" enctype="multipart/form-data">
+			<form id="form-registro" class="form-horizontal" role="form" method="post" action="<?php echo $root.'controller/';?>UserController.php" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="run_input" class="col-md-3 control-label">RUN</label>
 					<div class="col-md-9">
@@ -47,6 +48,7 @@
 					</div>
 				</div>
 				<div class="text-right">
+					<input name="action" value="registro" type="hidden" />
 					<button id="clean" class="btn btn-default btn-lg" type="reset">Limpiar</button>
 					<button id="submit" class="btn btn-primary btn-lg" type="submit">Registrar</button>
 				</div>

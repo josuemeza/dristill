@@ -1,4 +1,13 @@
 $(function() {
+
+	$(document).ready(function() {
+		// Cierre de sesión
+		if($('#navbtn-logout').length>0 )$('#navbtn-logout').click(function(event) {
+			event.preventDefault();
+			$('#form-logout').submit();
+		});
+	});
+
 	// Asignacion de reglas de validación
 	function rut_validation(value, element, param) {
 	    return value!='' ? $.Rut.validar(value) : true;

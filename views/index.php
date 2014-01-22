@@ -4,10 +4,9 @@
 	$nav_elements = NULL;
 	$nav_active = "inicio";
 	session_start();
-	if (!$_SESSION['loguser']) $nav_elements = array("inicio", "perfil", "registro", "login");
-	else $nav_elements = array("inicio", "perfil", "registro", "logout");
-	//session_destroy();
-	include($root.'app/events.php');
+	if (!$_SESSION['loguser']) $nav_elements = array("inicio", "registro", "login");
+	else $nav_elements = array("inicio", "perfil", "logout");
+	include($root.'controller/events.php');
 	include($root.'assets/html/header.php');
 ?>
 

@@ -1,4 +1,4 @@
-<?php include($root.'app/nav.php');?>
+<?php include($root.'controller/nav.php');?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -54,14 +54,24 @@
 						<ul class="nav navbar-nav">
 							<?php foreach($nav_elements as $ne){?>
 								<li <?php echo $nav_active==$ne ? 'class="active"' : '';?>>
-									<a href="<?php echo $navbar[$ne]["url"];?>">
+									<a href="<?php echo $navbar[$ne]["url"];?>" id="<?php echo $navbar[$ne]["id"];?>" class="<?php echo $navbar[$ne]["class"];?>">
 										<?php echo $navbar[$ne]["titulo"];?>
 									</a>
 								</li>
 							<?php }?>
 						</ul>
+						<?php if ($_SESSION['loguser']) {?>
+							<ul class="nav navbar-nav navbar-right" style="padding-right: 50px;">
+								<li><a style="color: #FFF;">Usuario: <?php echo $_SESSION['loguser']['rut'];?></a></li>
+							</ul>
+						<?php }?>
 					</div>
 				</div>
 			</div>
 		</div>
     </div>
+    <?php if ($_SESSION['loguser']) {?>
+    	<form id="form-logout" style="display: none;" method="POST" action="<?php echo $root.'controller/';?>UserController.php" enctype="multipart/form-data">
+    		<input name="action" value="logout" type="hidden" />
+    	</form>
+    <?php }?>

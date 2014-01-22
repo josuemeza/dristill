@@ -64,8 +64,8 @@ $(function() {
 		$('#correo').focusout(function() {
 			if(validator.element('#correo')) {
 				$('#correo-loader img').show();
-				$.ajax({url: '../app/procesar.php', data: {'valorCaja1': $(this).val()}, type: 'POST', success: function(response) {
-					if(response=='Usuario registrado') {
+				$.ajax({url: '../controller/UserController.php', data: {'action': 'validarCorreo', 'mail': $(this).val()}, type: 'POST', success: function(response) {
+					if(response=='invalid') {
 						$('#correo-loader span').text('Correo registrado');
 						if(!$('#correo-loader').parent().parent().hasClass('has-error')) $('#correo-loader').parent().parent().addClass('has-error');
 					} else {
@@ -108,5 +108,6 @@ $(function() {
 			$('span.error').remove();
 			$('div.has-error').removeClass('has-error');
 		});
+		
 	});
 });

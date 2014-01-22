@@ -3,10 +3,10 @@
 	$titulo = 'Dristill - Perfil';
 	$nav_elements = NULL;
 	$nav_active = "perfil";
-	/*session_start();
-	if (!$_SESSION['loguser']) echo '<script type="text/javascript">window.location="'. $root . 'views/perfil.php"</script>';
-	else*/ $nav_elements = array("inicio", "perfil", "registro", "logout");
-	include($root.'app/events.php');
+	session_start();
+	if (!$_SESSION['loguser']) echo '<script type="text/javascript">window.location="'. $root . 'views/login.php"</script>';
+	else $nav_elements = array("inicio", "perfil", "logout");
+	include($root.'controller/events.php');
 	include($root.'assets/html/header.php');
 ?>
 
@@ -34,17 +34,17 @@
 				<img src="<?php echo $root;?>assets/img/user.png" width="180" class="img-circle"/>
 			</div>
 			<div class="col-md-8">
-				<form id="form-editar" class="form-horizontal" role="form" method="post" action="editar-completo.php" enctype="multipart/form-data">
+				<form id="form-editar" class="form-horizontal" role="form" method="post" action="<?php echo $root.'controller/';?>UserController.php" enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="run_input" class="col-md-3 control-label">RUN</label>
 						<div class="col-md-9">
-							<input id="run_input" name="run_input" data-label="RUN" type="text" placeholder="12.345.678-9" class="form-control"/>
+							<input id="run_input" name="run_input" data-label="RUN" type="text" value="<?php echo $_SESSION['loguser']['rut'];?>" class="form-control"/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="correo" class="col-md-3 control-label">Correo</label>
 						<div class="col-md-9">
-							<input id="correo" name="correo" data-label="Correo" type="text" placeholder="correo@correo.correo" class="form-control"/>
+							<input id="correo" name="correo" data-label="Correo" type="text" value="<?php echo $_SESSION['loguser']['mail'];?>" class="form-control"/>
 							<span id="correo-loader">
 								<img src="<?php echo $root;?>assets/img/loader.gif" style="display: none;"/>
 								<span></span>
@@ -54,10 +54,10 @@
 					<div class="form-group">
 						<label for="password" class="col-md-3 control-label">Contraseña</label>
 						<div class="col-md-9">
-							<input id="password" name="password" data-label="Contraseña" type="password" placeholder="contraseña" class="form-control"/>
+							<input id="password" name="password" data-label="Contraseña" type="password" value="password" class="form-control"/>
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group confirmacion" style="display: none;">
 						<label for="confirmacion" class="col-md-3 control-label">Confirme</label>
 						<div class="col-md-9">
 							<input id="confirmacion" name="confirmacion" data-label="Confirmación" type="password" placeholder="confirmación de contraseña" class="form-control"/>
@@ -68,8 +68,10 @@
 							<button id="editar_datos" class="btn btn-default" type="button">Editar</button>
 						</div>
 						<div class="buttons" style="display: none;">
-							<button class="clean btn btn-default" type="reset">Limpiar</button>
-							<button class="submit btn btn-primary" type="submit">Registrar</button>
+							<input name="correo-actual" type="hidden" value="<?php echo $_SESSION['loguser']['mail'];?>" />
+							<input name="action" value="editar" type="hidden" />
+							<button id="clean" class="clean btn btn-default" type="reset">Limpiar</button>
+							<button class="submit btn btn-primary" type="submit">Guardar</button>
 						</div>
 					</div>
 				</form>
