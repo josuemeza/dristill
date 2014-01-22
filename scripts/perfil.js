@@ -11,7 +11,9 @@ $(function() {
 			nombre: { required: true, minlength: 3, maxlength: 100 },
 			direccion: { required: true, minlength: 3, maxlength: 100 },
 			fecha: { required: true, valid_date: true },
-			file_data: { file_type: ['image'] }
+			longitud: { required: true, digits: true },
+			latitud: { required: true, digits: true },
+			file_data: { required: true, file_type: ['image'] }
 		}
 
 		// Mensajes de validación
@@ -51,6 +53,14 @@ $(function() {
 				required: 'Dirección requerida.',
 				minlength: 'Debe tener al menos 3 caracteres.',
 				maxlength: 'Debe tener máximo 100 caracteres.'
+			},
+			longitud: {
+				required: 'Longitud requerida.',
+				digits: 'Solo debe contener números.'
+			},
+			latitud: {
+				required: 'Latitud requerida.',
+				digits: 'Solo debe contener números.'
 			},
 			fecha: {
 				required: 'Fecha requerida.'

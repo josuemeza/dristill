@@ -6,8 +6,11 @@
 	session_start();
 	if (!$_SESSION['loguser']) $nav_elements = array("inicio", "registro", "login");
 	else $nav_elements = array("inicio", "perfil", "logout");
-	include($root.'controller/events.php');
+	//include($root.'controller/EventController.php');
+	include($root.'controller/EventController.php');
 	include($root.'assets/html/header.php');
+	$topEvents = $eventController->getTop10();
+	$historyEvents = $eventController->getHistoryEvents();
 ?>
 
 <!-- Scripts -->
@@ -16,15 +19,14 @@
 <div id="top-events" class="carousel slide" data-ride="carousel">
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
-		<?php $i = 0; foreach($top_events as $e) {?>
+		<?php $i = 0; foreach($topEvents as $e) {?>
 			<li data-target="#top-events" data-slide-to="<?php echo $i;?>" class="<?php echo $i==0 ? 'active' : '';?>"></li>
 		<?php $i++; }?>
 	</ol>
 	<div class="carousel-inner">
-		<?php $i = 0; foreach($top_events as $e) {?>
+		<?php $i = 0; foreach($topEvents as $e) {?>
 			<div class="item <?php echo $i==0 ? 'active' : '';?>">
-				<!--img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt=":)"/-->
-				<img src="<?php echo $root;?>assets/img/eventos/<?php echo $e->getImagenPath();?>" alt=":)"/>
+				<img src="<?php echo $root.'controller/EventController.php?id='.$e->getId().'&mail='.$e->getUsrMail();?>" alt=":)"/>
 				<div class="container">
 					<div class="carousel-caption">
 						<h2>
@@ -66,7 +68,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php foreach($history_events as $e) {?>
+					<?php foreach($historyEvents as $e) {?>
 						<tr>
 							<td>
 								<?php echo $e->getFecha();?>
@@ -97,13 +99,14 @@
 		</div>
 		<div id="login" class="col-md-3 col-md-offset-1" <?php echo $_SESSION['loguser'] ? 'style="display: none;"' : '';?>>
 			<h2>Eres usuario?</h2>
-			<form class="form-signin" role="form" action="<?php echo $root;?>views/perfil.php" method="POST">
-				<input type="text" class="form-control" placeholder="nombre de usuario">
-				<input type="password" class="form-control" placeholder="contraseña">
+			<form class="form-signin" role="form" action="<?php echo $root;?>controller/UserController.php" method="POST">
+				<input name="mail" type="text" class="form-control" placeholder="Correo">
+				<input name="password" type="password" class="form-control" placeholder="contraseña">
 				<label for="recordarme" class="checkbox">
 					<input id="recordarme" name="recordarme" type="checkbox" value="remember-me"> Recordar esta cuenta
 				</label>
 				<div class="text-right">
+					<input name="action" value="login" type="hidden" />
 					<button class="btn btn-default btn-lg" type="button">Regístrate</button>
 					<button class="btn btn-primary btn-lg" type="submit">Entrar</button>
 				</div>
